@@ -1,0 +1,12 @@
+IF OBJECT_ID('Medicos', 'U') IS NOT NULL DROP TABLE Medicos;
+
+CREATE TABLE Medicos (
+    medico_id INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(100) NOT NULL,
+    especialidad VARCHAR(100) NOT NULL
+);
+
+INSERT INTO Medicos (nombre, especialidad) VALUES
+('Dr. Alejandro Soto', 'Cardiología'), -- medico_id = 1
+('Dra. Laura Montes', 'Pediatría'),    -- medico_id = 2
+('Dr. Carlos Rivera', 'Dermatología'); -- medico_id = 3
