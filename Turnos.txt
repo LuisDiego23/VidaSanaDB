@@ -1,0 +1,19 @@
+IF OBJECT_ID('Turnos', 'U') IS NOT NULL DROP TABLE Turnos;
+
+CREATE TABLE Turnos (
+    turno_id INT PRIMARY KEY IDENTITY(1,1),
+    medico_id INT NOT NULL,
+    paciente_id INT NOT NULL,
+    fecha_hora DATETIME NOT NULL, -- Usamos DATETIME para almacenar hora
+    FOREIGN KEY (medico_id) REFERENCES Medicos(medico_id),
+    FOREIGN KEY (paciente_id) REFERENCES Pacientes(paciente_id)
+);
+
+INSERT INTO Turnos (medico_id, paciente_id, fecha_hora) VALUES
+-- Citas para hoy
+(1, 1, DATEADD(hour, 10, GETDATE())), -- Hoy, aprox 10:00 AM (Dr. Soto)
+(1, 2, DATEADD(hour, 11, GETDATE())), -- Hoy, aprox 11:00 AM (Dr. Soto)
+(2, 3, DATEADD(hour, 15, GETDATE())), -- Hoy, aprox 03:00 PM (Dra. Montes)
+-- Cita pasada y Cita futura
+(3, 4, DATEADD(day, -5, GETDATE())),
+(2, 1, DATEADD(day, 2, GETDATE()));
