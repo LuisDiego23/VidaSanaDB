@@ -1,0 +1,13 @@
+IF OBJECT_ID('Pacientes', 'U') IS NOT NULL DROP TABLE Pacientes;
+
+CREATE TABLE Pacientes (
+    paciente_id INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20)
+);
+
+INSERT INTO Pacientes (nombre, telefono) VALUES
+('Elena Fernández', '555-1001'),       -- paciente_id = 1
+('Roberto Gómez', '555-1002'),         -- paciente_id = 2
+('Sofía Herrera', '555-1003'),         -- paciente_id = 3
+('Juan Torres', '555-1004');           -- paciente_id = 4 (Sin citas registradas
